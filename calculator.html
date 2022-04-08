@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            background-color: aliceblue;
+            font-family: sans-serif;
+            outline: none;
+        }
+        .container{
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+        }
+        .calculator{
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 40px;
+            box-shadow: inset 5px 5px 12px wheat,
+            5px 5px 12px black;
+            display: grid;
+          grid-template-columns:repeat(4,69px) ;
+        }
+        input{
+            grid-column: span 4;
+            height: 70px;
+            width: 270px;
+            background-color: aliceblue;
+            /* box-shadow: inset -5px -5px 12px #ffffff, */
+            /* innset 5px 5px 12px ; */
+            border: black;
+            border-radius: 30px;
+            color: black;
+            font-size:30px ;
+            text-align: end;
+            box-shadow: -5px -5px 12px #ffffff
+            5px 5px 12px rgba(0, 0, 0,.16);
+
+        }
+        button{
+            height: 48px;
+            width: 48px;
+             background-color: #ecf0f3;
+            box-shadow: -5px -5px 12px #ffffff
+            5px 5px 12px rgba(0, 0, 0,.16);
+            /* border: none; */
+            margin: 8px;
+            border-radius: 50px;
+            font-size: 15px; 
+        }
+        #ki{
+            width: 115px;
+            background-color: #ecf0f3;
+            box-shadow: -5px -5px 12px #ffffff
+            5px 5px 12px rgba(0, 0, 0,.16);
+        }
+      
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+         
+            <input type="text" placeholder="0" id="output">
+               <button onclick="fin()">c</button>
+               <button onclick="del()">DEL</button>
+               <button onclick="display('%')">%</button>
+               <button onclick="display('/')">/</button>
+                <button onclick="display('7')">7</button>
+                <button onclick="display('8')">8</button>
+                <button onclick="display('9')">9</button>
+                <button onclick="display('*')">*</button>
+                <button onclick="display('4')">4<button>
+               <button onclick="display('5')">5<button>
+               <button onclick="display('6')">6<button>
+               <button onclick="display('-')">-<button>
+                <button onclick="display('1')">1</button>
+                <button onclick="display('2')">2</button>
+                <button onclick="display('3')">3</button>
+                <button onclick="display('+')">+</button>
+                
+                <button onclick="display('0')">0</button>
+                <button id="ki" onclick="calculate('=')">=</button>        
+            </div>
+    </div>
+    <script>
+        let output=document.getElementById("output")
+       
+        function display(num){
+            output.value += num;
+        }
+        function calculate(){
+            try{
+                output.value=eval( output.value)
+            }
+            catch(err){
+                alert("this is not valid")
+            }
+        }
+       
+        function del(){
+            output.value=output.value.slice(0,-1)
+        }
+        function fin(){
+            output.value= ""
+        }
+    </script>
+</body>
+</html>
